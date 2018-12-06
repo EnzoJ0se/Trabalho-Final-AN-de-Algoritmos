@@ -2,8 +2,6 @@ package Ordination;
 
 import java.util.Random;
 
-import view.MenuView;
-
 public class BubbleSort {
 	
 	private Long time;
@@ -12,22 +10,16 @@ public class BubbleSort {
 	private int temp = 0;
 	private Long startCount;
 	
-	public void BubbleSortTest() {
-		Random randomGenerator = new Random();
+	public void BubbleSortTest(int ordinate[]) {
 		
-		int[] ordinate = new int[30000];
-		for(int i = 0; i < ordinate.length; i++) {
-			ordinate[i] = randomGenerator.nextInt(29999);
-		}
-		
-		startCount = System.currentTimeMillis();
 		Ordinate(ordinate);
-		time = System.currentTimeMillis()-startCount;
 		
+//		System.out.println(time);
 	}
 	
 	
 	private void Ordinate(int data[]) {
+		startCount = System.currentTimeMillis();
 		
 		for (int i = 0; i < data.length-1; i++, comparison++)
 			
@@ -39,33 +31,22 @@ public class BubbleSort {
 					data[j-1] = temp;
 					exchanges = exchanges + 3;
 				}
-		
+		time = System.currentTimeMillis()-startCount;
 	}
 
 	public Long getTime() {
 		return time;
 	}
-
-	public void setTime(Long time) {
-		this.time = time;
-	}
-
-	
 	public int getcomparison() {
 		return comparison;
-	}
-	public void setcomparison(int comparison) {
-		this.comparison = comparison;
 	}
 	public int getExchanges() {
 		return exchanges;
 	}
-	public void setExchanges(int exchanges) {
-		this.exchanges = exchanges;
-	}
 	
-	public static void main(String[] args) {
-		new BubbleSort().BubbleSortTest(); 
-	}
+	
+//	public static void main(String[] args) {
+//		new BubbleSort().BubbleSortTest(); 
+//	}
 
 }
